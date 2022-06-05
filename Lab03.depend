@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1654450039 source:c:\users\asus\desktop\lab03\lab03\main.cpp
+1654454312 source:c:\users\asus\desktop\lab03\lab03\main.cpp
 	<iostream>
 	<vector>
 	<curl/curl.h>
