@@ -2,11 +2,13 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <windows.h>
 #include <curl/curl.h>
 #include "histogram.h"
 #include "svg.h"
 
 using namespace std;
+DWORD WINAPI GetVersion(void);
 
 struct Input {
     vector<double> numbers;

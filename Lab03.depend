@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1654505988 source:c:\users\asus\desktop\lab03\lab03\main.cpp
+1654513243 source:c:\users\asus\desktop\lab03\lab03\main.cpp
 	<sstream>
 	<string>
 	<iostream>
 	<vector>
+	<windows.h>
 	<curl/curl.h>
 	"histogram.h"
 	"svg.h"
@@ -21,11 +22,14 @@
 	<vector>
 	<string>
 
-1654442919 source:c:\users\asus\desktop\lab03\lab03\svg.cpp
+1654513243 source:c:\users\asus\desktop\lab03\lab03\svg.cpp
 	<iostream>
 	<vector>
 	<string.h>
 	"svg.h"
+	<sstream>
+	<windows.h>
+	<cstdio>
 
 1652071940 c:\users\asus\desktop\lab03\lab03\curl\include\curl\curl.h
 	"curlver.h"
