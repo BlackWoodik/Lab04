@@ -93,25 +93,6 @@ show_histogram_text(const auto bins){
     }
 }
 
-Input
-download(const string& address) {
-    stringstream buffer;
-
-    CURL *curl = curl_easy_init();
-        if(curl) {
-            CURLcode res;
-            curl_easy_setopt(curl, CURLOPT_URL, address.c_str());
-            res = curl_easy_perform(curl);
-            if (res!=0){
-                curl_easy_strerror(res);
-                exit(1);
-                }
-            curl_easy_cleanup(curl);
-        }
-
-    return read_input(buffer, false);
-}
-
 size_t
 write_data(void* items, size_t item_size, size_t item_count, void* ctx) {
     size_t data_size = item_size * item_count;
@@ -119,6 +100,37 @@ write_data(void* items, size_t item_size, size_t item_count, void* ctx) {
     buffer->write(reinterpret_cast<const char*>(items), data_size);
     return data_size;
 }
+
+Input
+download(const string& address) {
+    stringstream buffer;
+    CURL *curl = curl_easy_init();
+        if(curl) {
+            cerr << "1"<< endl;
+            CURLcode res;
+            curl_easy_setopt(curl, CURLOPT_URL, address.c_str());
+            res = curl_easy_perform(curl);
+            cerr << "2"<< endl;
+            if (res!=0){
+                cerr << curl_easy_strerror(res);
+                exit(1);
+                }
+           // else{
+                //long req;
+               // res = curl_easy_getinfo(curl, CURLINFO_REQUEST_SIZE, &req);
+                //if(!res)
+                //    printf("Request size: %ld bytes\n", req);
+            //}
+            curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
+            cerr << "3"<< endl;
+            curl_easy_setopt(curl, CURLOPT_WRITEDATA, &buffer);
+            cerr << "1"<< endl;
+            curl_easy_cleanup(curl);
+        }
+        cerr << "1"<< endl;
+    return read_input(buffer, false);
+}
+
 
 int
 main(int argc, char* argv[]) {
